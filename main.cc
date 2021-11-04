@@ -2,13 +2,14 @@
 #include <stdlib.h>
 #include <functional>
 #include "test.h"
+#include "types.h"
 
-typedef std::uint64_t uint64;
-
+namespace tfcore{
 int main()
 {
     std::cout << "Hello Geek\n";
     std::function<uint64()>* p;
     helloWorld();
     return 0;
+}
 }
