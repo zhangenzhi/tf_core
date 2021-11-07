@@ -13,6 +13,8 @@ int main()
 
     tfcore::AllocationAttributes(false,false,p);
     tfcore::AllocatorStats();
+
+    tfcore::Allocator();
     helloWorld();
     return 0;
 }

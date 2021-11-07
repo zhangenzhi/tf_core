@@ -34,6 +34,29 @@ struct AllocatorStats {
     int64_t bytes_in_use;
     int64_t peak_bytes_in_use;
     int64_t largest_alloc_size;
+
+    // absl::optional<int64_t> bytes_limit;
+
+    int64_t bytes_reserved;
+    int64_t peak_bytes_reserved;
+
+    // absl::optional<int64_t> bytes_reservable_limit;
+
+    int64_t largest_free_block_bytes;
+
+    AllocatorStats()
+        : num_allocs(0),
+          bytes_in_use(0),
+          peak_bytes_in_use(0),
+          largest_alloc_size(0),
+          bytes_reserved(0),
+          peak_bytes_reserved(0),
+          largest_free_block_bytes(0) {}
+};
+
+class Allocator {
+    public:
+        static constexpr size_t kAllocatorAlignment = 64;
 };
 
 }
