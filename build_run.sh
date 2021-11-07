@@ -1,6 +1,5 @@
-rm -rf build
-mkdir build
-g++ -o build/main.o main.cc
-./build/main.o
-rm -rf build
+rm -rf build && mkdir build
+cd build
+g++ -o main.o ../main.cc
+cd .. && rm -rf build
 
