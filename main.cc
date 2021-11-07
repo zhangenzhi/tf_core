@@ -2,14 +2,14 @@
 #include <stdlib.h>
 #include <functional>
 #include "test.h"
-// #include "types.h"
+#include "types.h"
 
-namespace tfcore{
+// namespace tfcore{
 int main()
 {
     std::cout << "Hello Geek\n";
-    // std::function<uint64()>* p;
-    // helloWorld();
+    std::function<tfcore::uint64()>* p;
+    helloWorld();
     return 0;
 }
-}
+// }
