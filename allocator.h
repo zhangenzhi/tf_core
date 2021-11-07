@@ -6,6 +6,7 @@
 #include <limits>
 
 #include "types.h"
+#include "macros.h"
 
 namespace tfcore{
 
@@ -25,7 +26,7 @@ struct AllocationAttributes {
 
     std::function<uint64()>* freed_by_func = nullptr;
 
-    TF_DISALLOW_COPY_AND_ASSIGN(AllocationAttributes);
+    DISALLOW_COPY_AND_ASSIGN(AllocationAttributes);
 };
 
 }
