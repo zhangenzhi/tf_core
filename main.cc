@@ -8,7 +8,7 @@ namespace tfcore{
 int main()
 {
     std::cout << "Hello Geek\n";
-    std::function<uint64()>* p;
+    // std::function<uint64()>* p;
     helloWorld();
     return 0;
 }
