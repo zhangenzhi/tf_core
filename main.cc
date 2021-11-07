@@ -9,7 +9,7 @@ int main()
 {
     std::cout << "Hello Geek\n";
     // std::function<uint64()>* p;
-    helloWorld();
+    // helloWorld();
     return 0;
 }
 }
