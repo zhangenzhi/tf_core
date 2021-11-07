@@ -29,6 +29,13 @@ struct AllocationAttributes {
     DISALLOW_COPY_AND_ASSIGN(AllocationAttributes);
 };
 
+struct AllocatorStats {
+    int64_t num_allocs;
+    int64_t bytes_in_use;
+    int64_t peak_bytes_in_use;
+    int64_t largest_alloc_size;
+};
+
 }
 
 
