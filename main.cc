@@ -12,7 +12,7 @@ int main()
     std::function<tfcore::uint64()>* p;
 
     tfcore::AllocationAttributes(false,false,p);
-    tfcore::AllocatorStats;
+    tfcore::AllocatorStats();
     helloWorld();
     return 0;
 }
