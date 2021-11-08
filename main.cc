@@ -15,7 +15,7 @@ int main()
     tfcore::AllocationAttributes(false,false,p);
     tfcore::AllocatorStats();
 
-    tfcore::Allocator();
+    // tfcore::Allocator();
     std::cout << PREDICT_FALSE(10)<<std::endl;
     helloWorld();
     return 0;
