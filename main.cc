@@ -5,6 +5,7 @@
 #include "test.h"
 #include "types.h"
 
+#define PREDICT_FALSE(x) (x)
 
 int main()
 {
@@ -15,6 +16,7 @@ int main()
     tfcore::AllocatorStats();
 
     tfcore::Allocator();
+    std::cout << PREDICT_FALSE(10)<<std::endl;
     helloWorld();
     return 0;
 }

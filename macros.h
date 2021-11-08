@@ -5,4 +5,8 @@
   TypeName(const TypeName&) = delete;         \
   void operator=(const TypeName&) = delete
 
+#define PREDICT_FALSE(x) (x)
+#define PREDICT_TRUE(x) (x)
+
+
 #endif

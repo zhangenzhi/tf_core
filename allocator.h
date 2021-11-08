@@ -57,6 +57,24 @@ struct AllocatorStats {
 class Allocator {
     public:
         static constexpr size_t kAllocatorAlignment = 64;
+
+        virtual ~Allocator();
+
+        virtual void* AllocateRaw(size_t alignment, size_t num_bytes) = 0;
+
+        virtual void* AllocateRaw(size_t alignment, size_t num_bytes,
+                                  const AllocationAttributes& allocation_attr) {
+            return AllocateRaw(alignment,num_bytes);
+        }
+
+        virtual void DeallocateRaw(void* ptr) = 0;
+        virtual bool TracksAllocationSizes() const {return false;}
+        virtual bool AllocatesOpaqueHandle() const { return false; }
+
+        virtual size_t RequestedSize(const void* ptr) const {
+            CHECK(false) << "allocator doesn't track sizes.";
+            return size_t(0);
+        }
 };
 
 }
