@@ -1,6 +1,11 @@
 #ifndef TF_CORE_MACROS_H_
 #define TF_CORE_MACROS_H_
 
+#define TF_ATTRIBUTE_NORETURN __attribute__((noreturn))
+#define TF_ATTRIBUTE_NOINLINE __attribute__((noinline))
+#define TF_ATTRIBUTE_COLD __attribute__((cold))
+
+
 #define DISALLOW_COPY_AND_ASSIGN(TypeName) \
   TypeName(const TypeName&) = delete;         \
   void operator=(const TypeName&) = delete

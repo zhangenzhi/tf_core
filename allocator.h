@@ -7,6 +7,7 @@
 
 #include "types.h"
 #include "macros.h"
+#include "logging.h"
 
 namespace tfcore{
 
