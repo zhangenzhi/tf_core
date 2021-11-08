@@ -17,6 +17,7 @@ int main()
 
     // tfcore::Allocator();
     std::cout << PREDICT_FALSE(10)<<std::endl;
+    std::cout << TF_ATTRIBUTE_COLD<<std::endl;
     helloWorld();
     return 0;
 }
