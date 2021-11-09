@@ -17,7 +17,15 @@ int main()
 
     // tfcore::Allocator();
     std::cout << PREDICT_FALSE(10)<<std::endl;
-    std::cout << TF_ATTRIBUTE_COLD<<std::endl;
     helloWorld();
+
+    int i = 3;
+    int j = 3;
+
+    i = i | 5;
+    std::cout << i <<std::endl;
+    j |= 5;
+    std::cout << j <<std::endl;
+
     return 0;
 }

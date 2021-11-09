@@ -59,6 +59,8 @@ class Allocator {
     public:
         static constexpr size_t kAllocatorAlignment = 64;
 
+        virtual std::string Name() = 0;
+
         virtual ~Allocator();
 
         virtual void* AllocateRaw(size_t alignment, size_t num_bytes) = 0;
@@ -76,6 +78,79 @@ class Allocator {
             CHECK(false) << "allocator doesn't track sizes.";
             return size_t(0);
         }
+
+        virtual size_t AllocatedSize(const void* ptr) const {    
+            return RequestedSize(ptr);
+        }
+
+        virtual int64_t AllocationId(const void* ptr) const { return 0; }
+
+        virtual size_t AllocatedSizeSlow(const void* ptr) const {
+            if (TracksAllocationSizes()) {
+                return AllocatedSize(ptr);
+            }
+            return 0;
+        }
+
+        virtual void SetSafeFrontier(uint64 count) {}
+        virtual void SetStreamAndPreallocateMemory(void* stream) {}
+};
+
+class AllocatorWrapper : public Allocator{
+    public:
+        explicit AllocatorWrapper(Allocator* wrapped) : wrapped_(wrapped) {}
+
+        ~AllocatorWrapper() override {}
+
+        Allocator* wrapped() const { return wrapped_; }
+
+        std::string Name() override { return wrapped_->Name(); }
+
+        void* AllocateRaw(size_t alignment, size_t num_bytes) override {
+            return wrapped_->AllocateRaw(alignment, num_bytes);
+        }
+        void* AllocateRaw(size_t alignment, size_t num_bytes,
+                          const AllocationAttributes& allocation_attr) override {
+            return wrapped_->AllocateRaw(alignment, num_bytes, allocation_attr);
+        }
+
+        void DeallocateRaw(void* ptr) override { wrapped_->DeallocateRaw(ptr); }    
+
+        bool TracksAllocationSizes() const override {
+            return wrapped_->TracksAllocationSizes();
+        }
+
+        bool AllocatesOpaqueHandle() const override {
+            return wrapped_->AllocatesOpaqueHandle();
+        }
+
+        size_t RequestedSize(const void* ptr) const override {
+            return wrapped_->RequestedSize(ptr);
+        }
+
+        size_t AllocatedSize(const void* ptr) const override {
+            return wrapped_->AllocatedSize(ptr);
+        }
+
+        int64_t AllocationId(const void* ptr) const override {
+            return wrapped_->AllocationId(ptr);
+        }
+
+        size_t AllocatedSizeSlow(const void* ptr) const override {
+            return wrapped_->AllocatedSizeSlow(ptr);
+        }
+
+    private:
+        Allocator* const wrapped_;
+};
+
+struct AllocatorAttributes {
+    void set_on_host(bool v) { value |= (static_cast<int>(v));}
+
+    uint32 value = 0;
+    int32 scoped_id = 0;
+    std::string DebugString() const;
+
 };
 
 }
