@@ -18,7 +18,8 @@ int main()
     // tfcore::Allocator();
     std::cout << PREDICT_FALSE(10)<<std::endl;
     helloWorld();
-
-    std::cout<<0x1<<std::endl;
+    bool v = false;
+    std::cout<<v & 0x1<<std::endl;
+    std::cout<<(0x1 << 1)<<std::endl;
     return 0;
 }
