@@ -19,7 +19,9 @@ int main()
     std::cout << PREDICT_FALSE(10)<<std::endl;
     helloWorld();
     bool v = false;
-    std::cout<<v & 0x1<<std::endl;
+    std::cout<<(v & 0x1)<<std::endl;
     std::cout<<(0x1 << 1)<<std::endl;
+    std::cout<<(0x1 << 2)<<std::endl;
+    std::cout<<(v & (0x1 << 2))<<std::endl;
     return 0;
 }
