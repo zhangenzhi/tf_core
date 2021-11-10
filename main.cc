@@ -12,8 +12,8 @@ int main()
     std::cout << "Hello Geek\n";
     std::function<tfcore::uint64()>* p;
 
-    tfcore::AllocationAttributes(false,false,p);
-    tfcore::AllocatorStats* as;
+    // tfcore::AllocationAttributes(false,false,p);
+    // tfcore::AllocatorStats* as;
     // std::string s = as->DebugString();
     
 
