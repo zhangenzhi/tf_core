@@ -1,6 +1,7 @@
 #ifndef TF_CORE_ALLOCATOR_H_
 #define TF_CORE_ALLOCATOR_H_
 
+#include <vector>
 #include <stdlib.h>
 #include <functional>
 #include <limits>
