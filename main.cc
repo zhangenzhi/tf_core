@@ -20,7 +20,7 @@ int main()
     // tfcore::Allocator();
     // std::cout << PREDICT_FALSE(10)<<std::endl;
     // tfcore::helloWorld();
-    const tfcore::TestClass* t;
+    tfcore::TestClass* const t;
     // t->PrintString();
     t->PrintVoid();
 
