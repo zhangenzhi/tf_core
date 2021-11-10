@@ -13,8 +13,8 @@ int main()
     std::function<tfcore::uint64()>* p;
 
     tfcore::AllocationAttributes(false,false,p);
-    const tfcore::AllocatorStats as = tfcore::AllocatorStats();
-    std::string s = as.DebugString();
+    const tfcore::AllocatorStats* as;
+    std::string s = as->DebugString();
     
 
     // tfcore::Allocator();
