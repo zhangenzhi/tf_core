@@ -1,6 +1,7 @@
 #include "test.h"
 
-namespace test{
+
+namespace tfcore{
 
     std::string TestClass::PrintString() const{
         std::string s = "Print String!\n";

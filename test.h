@@ -1,6 +1,6 @@
 #include <iostream>
 
-namespace test{
+namespace tfcore{
 
 void helloWorld()
 {
