@@ -22,7 +22,7 @@ int main()
     tfcore::helloWorld();
     tfcore::TestClass* t;
     // t->PrintString();
-    t->PrintVoid();
+    // t->PrintVoid();
 
     // bool v = false;
     // std::cout<<(v & 0x1)<<std::endl;
