@@ -1,11 +1,12 @@
+#include "allocator.h"
+
 #include <atomic>
 
-#include "allocator.h"
 #include "stringprintf.h"
 
 namespace tfcore{
 
-    std::string AllocatorStats::DebugString() const{
+    string AllocatorStats::DebugString() const{
         return strings::Printf(
         // "Limit:            %20lld\n"
         "InUse:            %20lld\n"

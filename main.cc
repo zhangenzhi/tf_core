@@ -14,7 +14,7 @@ int main()
 
     tfcore::AllocationAttributes(false,false,p);
     tfcore::AllocatorStats as;
-    std::string s = as.DebugString() const;
+    std::string s = as.DebugString();
     
 
     // tfcore::Allocator();
