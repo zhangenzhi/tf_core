@@ -54,6 +54,8 @@ struct AllocatorStats {
           bytes_reserved(0),
           peak_bytes_reserved(0),
           largest_free_block_bytes(0) {}
+
+    std::string DebugString() const;
 };
 
 class Allocator {
@@ -217,7 +219,5 @@ class SubAllocator {
         const std::vector<Visitor> alloc_visitors_;
         const std::vector<Visitor> free_visitors_;
 };
-
-
 }
 #endif

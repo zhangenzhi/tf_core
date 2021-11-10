@@ -13,7 +13,9 @@ int main()
     std::function<tfcore::uint64()>* p;
 
     tfcore::AllocationAttributes(false,false,p);
-    tfcore::AllocatorStats();
+    tfcore::AllocatorStats as;
+    as.DebugString();
+    
 
     // tfcore::Allocator();
     std::cout << PREDICT_FALSE(10)<<std::endl;
