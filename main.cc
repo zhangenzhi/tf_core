@@ -21,7 +21,8 @@ int main()
 
     char i = '0';
     int j = static_cast<int>(i);
-    bool v |= j;
+    bool v = false;
+    v |= j;
     std::cout << j << " "<< v <<std::endl;
     return 0;
 }
