@@ -11,7 +11,7 @@ class TestClass
 {
     public:
         std::string PrintString() const;
-
-};
+        void PrintVoid() const;
+};      
 
 }//test

@@ -21,7 +21,8 @@ int main()
     // std::cout << PREDICT_FALSE(10)<<std::endl;
     // test::helloWorld();
     test::TestClass* t;
-    t->PrintString();
+    // t->PrintString();
+    t->PrintVoid();
 
     // bool v = false;
     // std::cout<<(v & 0x1)<<std::endl;
