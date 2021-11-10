@@ -146,6 +146,11 @@ class AllocatorWrapper : public Allocator{
 
 struct AllocatorAttributes {
     void set_on_host(bool v) { value |= (static_cast<int>(v));}
+    bool on_host() const { return value & 0x1; }
+    void set_nic_compatible(bool v) { value |= (static_cast<int>(v) << 1); }
+    bool nic_compatible() const { return value & (0x1 << 1); }
+    void set_gpu_compatible(bool v) { value |= (static_cast<int>(v) << 2); }
+    bool gpu_compatible() const { return value & (0x1 << 2); }
 
     uint32 value = 0;
     int32 scoped_id = 0;

@@ -19,10 +19,6 @@ int main()
     std::cout << PREDICT_FALSE(10)<<std::endl;
     helloWorld();
 
-    int i = 0;
-    int j = static_cast<int>(i);
-    bool v = false;
-    v |= j;
-    std::cout << j << " "<< v <<std::endl;
+    std::cout<<0x1<<std::endl;
     return 0;
 }
