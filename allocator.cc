@@ -6,7 +6,7 @@
 
 namespace tfcore{
 
-    string AllocatorStats::DebugString() const{
+    std::string AllocatorStats::DebugString() const {
         return strings::Printf(
         // "Limit:            %20lld\n"
         "InUse:            %20lld\n"
