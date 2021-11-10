@@ -19,7 +19,7 @@ int main()
     std::cout << PREDICT_FALSE(10)<<std::endl;
     helloWorld();
 
-    bool i = 1;
+    char i = '1';
     int j = static_cast<int>(i);
     std::cout << j <<std::endl;
     return 0;
