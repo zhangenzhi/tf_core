@@ -19,8 +19,9 @@ int main()
     std::cout << PREDICT_FALSE(10)<<std::endl;
     helloWorld();
 
-    char i = '1';
+    char i = '0';
     int j = static_cast<int>(i);
-    std::cout << j <<std::endl;
+    bool v |= j;
+    std::cout << j << " "<< v <<std::endl;
     return 0;
 }
