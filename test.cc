@@ -15,4 +15,9 @@ namespace tfcore{
     void TestClass::HelloConst(){
         std::cout<< "Hello Const."<<std::endl;
     }
+
+    void helloWorld()
+    {
+        std::cout << "Hello World\n";
+    }
 }

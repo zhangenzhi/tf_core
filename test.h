@@ -2,10 +2,7 @@
 
 namespace tfcore{
 
-void helloWorld()
-{
-    std::cout << "Hello World\n";
-}
+void helloWorld();
 
 class TestClass
 {
