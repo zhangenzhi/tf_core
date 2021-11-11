@@ -6,5 +6,5 @@ main: main.o test.o
 test.o: test.h test.cc
 	g++ -c test.cc
 
-main.o: main.cpp test.o
-	g++ -c main.cpp
+main.o: main.cpp 
+	g++ -c main.cc
