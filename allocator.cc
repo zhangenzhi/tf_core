@@ -24,7 +24,7 @@ namespace tfcore{
         static_cast<long long>(this->largest_free_block_bytes));
     }
 
-    constexpr size_t Allocator::kAllocatorAlignment;
+    // constexpr size_t Allocator::kAllocatorAlignment;
 
-    Allocator::~Allocator() {}
+    // Allocator::~Allocator() {}
 }
