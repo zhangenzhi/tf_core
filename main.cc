@@ -17,12 +17,10 @@ int main()
     // std::string s = as->DebugString();
     
 
-    // tfcore::Allocator();
-    // std::cout << PREDICT_FALSE(10)<<std::endl;
-    // tfcore::helloWorld();
+    tfcore::Allocator();
+    std::cout << PREDICT_FALSE(10)<<std::endl;
+    tfcore::helloWorld();
     tfcore::TestClass* t;
-    // t->PrintString();
-    // t->PrintVoid();
     t->HelloConst();
 
     // bool v = false;
