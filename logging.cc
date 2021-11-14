@@ -5,9 +5,6 @@ namespace tf_core{
 LogMessage::LogMessage(const char* fname, int line, int severity)
     : fname_(fname), line_(line), severity_(severity) {}
 
-LogMessage::LogMessage(const char* fname, int line, int severity)
-    : fname_(fname), line_(line), severity_(severity) {}
-
 LogMessage& LogMessage::AtLocation(const char* fname, int line) {
   fname_ = fname;
   line_ = line;
