@@ -15,13 +15,14 @@ int main()
     // tfcore::AllocationAttributes(false,false,p);
     tfcore::AllocatorStats* as;
     std::string s = as->DebugString();
+    std::cout << s <<std::endl;
     
 
     // tfcore::Allocator *a;
     // std::cout << PREDICT_FALSE(10)<<std::endl;
-    tfcore::helloWorld();
-    tfcore::TestClass* t;
-    t->HelloConst();
+    // tfcore::helloWorld();
+    // tfcore::TestClass* t;
+    // t->HelloConst();
 
     // bool v = false;
     // std::cout<<(v & 0x1)<<std::endl;
