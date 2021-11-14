@@ -12,13 +12,13 @@ int main()
     std::cout << "Hello Geek\n";
     std::function<tfcore::uint64()>* p;
 
-    // tfcore::AllocationAttributes(false,false,p);
-    // tfcore::AllocatorStats* as;
-    // std::string s = as->DebugString();
+    tfcore::AllocationAttributes(false,false,p);
+    tfcore::AllocatorStats* as;
+    std::string s = as->DebugString();
     
 
-    tfcore::Allocator a();
-    std::cout << a.PREDICT_FALSE(10)<<std::endl;
+    // tfcore::Allocator *a;
+    // std::cout << PREDICT_FALSE(10)<<std::endl;
     tfcore::helloWorld();
     tfcore::TestClass* t;
     t->HelloConst();
