@@ -58,46 +58,46 @@ struct AllocatorStats {
     std::string DebugString() const;
 };
 
-// class Allocator {
-//     public:
-//         static constexpr size_t kAllocatorAlignment = 64;
+class Allocator {
+    public:
+        static constexpr size_t kAllocatorAlignment = 64;
 
-//         virtual std::string Name() = 0;
+        virtual std::string Name() = 0;
 
-//         virtual ~Allocator();
+        virtual ~Allocator();
 
-//         virtual void* AllocateRaw(size_t alignment, size_t num_bytes) = 0;
+        virtual void* AllocateRaw(size_t alignment, size_t num_bytes) = 0;
 
-//         virtual void* AllocateRaw(size_t alignment, size_t num_bytes,
-//                                   const AllocationAttributes& allocation_attr) {
-//             return AllocateRaw(alignment,num_bytes);
-//         }
+        virtual void* AllocateRaw(size_t alignment, size_t num_bytes,
+                                  const AllocationAttributes& allocation_attr) {
+            return AllocateRaw(alignment,num_bytes);
+        }
 
-//         virtual void DeallocateRaw(void* ptr) = 0;
-//         virtual bool TracksAllocationSizes() const {return false;}
-//         virtual bool AllocatesOpaqueHandle() const { return false; }
+        virtual void DeallocateRaw(void* ptr) = 0;
+        virtual bool TracksAllocationSizes() const {return false;}
+        virtual bool AllocatesOpaqueHandle() const { return false; }
 
-//         virtual size_t RequestedSize(const void* ptr) const {
-//             CHECK(false) << "allocator doesn't track sizes.";
-//             return size_t(0);
-//         }
+        virtual size_t RequestedSize(const void* ptr) const {
+            CHECK(false) << "allocator doesn't track sizes.";
+            return size_t(0);
+        }
 
-//         virtual size_t AllocatedSize(const void* ptr) const {    
-//             return RequestedSize(ptr);
-//         }
+        virtual size_t AllocatedSize(const void* ptr) const {    
+            return RequestedSize(ptr);
+        }
 
-//         virtual int64_t AllocationId(const void* ptr) const { return 0; }
+        virtual int64_t AllocationId(const void* ptr) const { return 0; }
 
-//         virtual size_t AllocatedSizeSlow(const void* ptr) const {
-//             if (TracksAllocationSizes()) {
-//                 return AllocatedSize(ptr);
-//             }
-//             return 0;
-//         }
+        virtual size_t AllocatedSizeSlow(const void* ptr) const {
+            if (TracksAllocationSizes()) {
+                return AllocatedSize(ptr);
+            }
+            return 0;
+        }
 
-//         virtual void SetSafeFrontier(uint64 count) {}
-//         virtual void SetStreamAndPreallocateMemory(void* stream) {}
-// };
+        virtual void SetSafeFrontier(uint64 count) {}
+        virtual void SetStreamAndPreallocateMemory(void* stream) {}
+};
 
 // class AllocatorWrapper : public Allocator{
 //     public:
