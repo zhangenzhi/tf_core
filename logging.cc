@@ -48,12 +48,12 @@ LogMessage::~LogMessage() {
 
 LogMessageFatal::LogMessageFatal(const char* file, int line)
     : LogMessage(file, line, FATAL) {}
-    
+
 LogMessageFatal::~LogMessageFatal() {
   // abort() ensures we don't return (we promised we would not via
   // ATTRIBUTE_NORETURN).
-  GenerateLogMessage();
-  abort();
+  // GenerateLogMessage();
+  // abort();
 }
 
 }
