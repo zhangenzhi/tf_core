@@ -11,13 +11,13 @@ LogMessage& LogMessage::AtLocation(const char* fname, int line) {
   return *this;
 }
 
-// LogMessage::~LogMessage() {
-//   // Read the min log level once during the first call to logging.
-//   static int64_t min_log_level = MinLogLevelFromEnv();
-//   if (severity_ >= min_log_level) {
-//     GenerateLogMessage();
-//   }
-// }
+LogMessage::~LogMessage() {
+  // Read the min log level once during the first call to logging.
+  // static int64_t min_log_level = MinLogLevelFromEnv();
+  // if (severity_ >= min_log_level) {
+  //   GenerateLogMessage();
+  // }
+}
 
 // void LogMessage::GenerateLogMessage() {
 //   TFLogSinks::Instance().Send(TFLogEntry(severity_, fname_, line_, str()));
