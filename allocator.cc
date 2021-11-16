@@ -36,7 +36,7 @@ namespace tfcore{
 
     std::string AllocatorAttributes::DebugString() const {
         std::string host = std::to_string(on_host());
-        std::string s = "AllocatorAttributes(on_host=" + host;
+        std::string s = "AllocatorAttributes(on_host=" + host + ")";
         return s;
 }
 }

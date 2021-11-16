@@ -197,27 +197,27 @@ bool CPUAllocatorFullStatsEnabled();
 // kind of cache or pool management so that it will call SubAllocator::Alloc and
 // Free relatively infrequently, compared to the number of times its own
 // AllocateRaw and Free methods are called.
-// class SubAllocator {
-//     public:
-//         typedef std::function<void(void*, int index, size_t)> Visitor;
+class SubAllocator {
+    public:
+        typedef std::function<void(void*, int index, size_t)> Visitor;
 
-//         SubAllocator(const std::vector<Visitor>& alloc_visitors,
-//                      const std::vector<Visitor>& free_visitors);
+        SubAllocator(const std::vector<Visitor>& alloc_visitors,
+                     const std::vector<Visitor>& free_visitors);
         
-//         virtual ~SubAllocator() {}
+        virtual ~SubAllocator() {}
 
-//         virtual void* Alloc(size_t alignment, size_t num_bytes,
-//                             size_t* bytes_received) = 0;
-//         virtual void Free(void* ptr, size_t num_bytes) = 0;
+        virtual void* Alloc(size_t alignment, size_t num_bytes,
+                            size_t* bytes_received) = 0;
+        virtual void Free(void* ptr, size_t num_bytes) = 0;
 
-//         virtual bool SupportCoalescing() const = 0;
+        virtual bool SupportCoalescing() const = 0;
 
-//     protected:
-//         void VisitAlloc(void* ptr, int index, size_t num_bytes);
-//         void VisitFree(void* ptr, int index, size_t num_bytes);
+    protected:
+        void VisitAlloc(void* ptr, int index, size_t num_bytes) {};
+        void VisitFree(void* ptr, int index, size_t num_bytes) {};
 
-//         const std::vector<Visitor> alloc_visitors_;
-//         const std::vector<Visitor> free_visitors_;
-// };
+        const std::vector<Visitor> alloc_visitors_;
+        const std::vector<Visitor> free_visitors_;
+};
 }
 #endif

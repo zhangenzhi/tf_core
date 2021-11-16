@@ -26,7 +26,8 @@ int main()
     std::cout<< s << t_s <<std::endl;
 
   
-
+    tfcore::SubAllocator *sa;
+    
     // tfcore::helloWorld();
     // tfcore::TestClass* t;
     // t->HelloConst();
