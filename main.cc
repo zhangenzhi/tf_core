@@ -13,15 +13,15 @@ int main()
     std::function<tfcore::uint64()>* p;
 
     // tfcore::AllocationAttributes(false,false,p);
-    tfcore::AllocatorStats* as;
-    std::string s = as->DebugString();
-    std::cout << s <<std::endl;
+    // tfcore::AllocatorStats* as;
+    // std::string s = as->DebugString();
+    // std::cout << s <<std::endl;
     
 
     tfcore::Allocator *a;
 
     tfcore::AllocatorAttributes *alloc_attr;
-    std::string s = alloc_attr->DebugString();
+    std::string s_attr = alloc_attr->DebugString();
     std::string t_s = std::to_string(false);
     std::cout<< s << t_s <<std::endl;
 
