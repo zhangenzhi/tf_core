@@ -16,7 +16,7 @@ LogMessage::~LogMessage() {
   // static int64_t min_log_level = MinLogLevelFromEnv();
   // if (severity_ >= min_log_level) {
   //   GenerateLogMessage();
-  // }
+  }
 }
 
 // void LogMessage::GenerateLogMessage() {

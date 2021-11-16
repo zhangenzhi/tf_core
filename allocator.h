@@ -99,104 +99,104 @@ class Allocator {
         virtual void SetStreamAndPreallocateMemory(void* stream) {}
 };
 
-// class AllocatorWrapper : public Allocator{
-//     public:
-//         explicit AllocatorWrapper(Allocator* wrapped) : wrapped_(wrapped) {}
+class AllocatorWrapper : public Allocator{
+    public:
+        explicit AllocatorWrapper(Allocator* wrapped) : wrapped_(wrapped) {}
 
-//         ~AllocatorWrapper() override {}
+        ~AllocatorWrapper() override {}
 
-//         Allocator* wrapped() const { return wrapped_; }
+        Allocator* wrapped() const { return wrapped_; }
 
-//         std::string Name() override { return wrapped_->Name(); }
+        std::string Name() override { return wrapped_->Name(); }
 
-//         void* AllocateRaw(size_t alignment, size_t num_bytes) override {
-//             return wrapped_->AllocateRaw(alignment, num_bytes);
-//         }
-//         void* AllocateRaw(size_t alignment, size_t num_bytes,
-//                           const AllocationAttributes& allocation_attr) override {
-//             return wrapped_->AllocateRaw(alignment, num_bytes, allocation_attr);
-//         }
+        void* AllocateRaw(size_t alignment, size_t num_bytes) override {
+            return wrapped_->AllocateRaw(alignment, num_bytes);
+        }
+        void* AllocateRaw(size_t alignment, size_t num_bytes,
+                          const AllocationAttributes& allocation_attr) override {
+            return wrapped_->AllocateRaw(alignment, num_bytes, allocation_attr);
+        }
 
-//         void DeallocateRaw(void* ptr) override { wrapped_->DeallocateRaw(ptr); }    
+        void DeallocateRaw(void* ptr) override { wrapped_->DeallocateRaw(ptr); }    
 
-//         bool TracksAllocationSizes() const override {
-//             return wrapped_->TracksAllocationSizes();
-//         }
+        bool TracksAllocationSizes() const override {
+            return wrapped_->TracksAllocationSizes();
+        }
 
-//         bool AllocatesOpaqueHandle() const override {
-//             return wrapped_->AllocatesOpaqueHandle();
-//         }
+        bool AllocatesOpaqueHandle() const override {
+            return wrapped_->AllocatesOpaqueHandle();
+        }
 
-//         size_t RequestedSize(const void* ptr) const override {
-//             return wrapped_->RequestedSize(ptr);
-//         }
+        size_t RequestedSize(const void* ptr) const override {
+            return wrapped_->RequestedSize(ptr);
+        }
 
-//         size_t AllocatedSize(const void* ptr) const override {
-//             return wrapped_->AllocatedSize(ptr);
-//         }
+        size_t AllocatedSize(const void* ptr) const override {
+            return wrapped_->AllocatedSize(ptr);
+        }
 
-//         int64_t AllocationId(const void* ptr) const override {
-//             return wrapped_->AllocationId(ptr);
-//         }
+        int64_t AllocationId(const void* ptr) const override {
+            return wrapped_->AllocationId(ptr);
+        }
 
-//         size_t AllocatedSizeSlow(const void* ptr) const override {
-//             return wrapped_->AllocatedSizeSlow(ptr);
-//         }
+        size_t AllocatedSizeSlow(const void* ptr) const override {
+            return wrapped_->AllocatedSizeSlow(ptr);
+        }
 
-//     private:
-//         Allocator* const wrapped_;
-// };
+    private:
+        Allocator* const wrapped_;
+};
 
-// struct AllocatorAttributes {
-//     void set_on_host(bool v) { value |= (static_cast<int>(v));}
-//     bool on_host() const { return value & 0x1; }
-//     void set_nic_compatible(bool v) { value |= (static_cast<int>(v) << 1); }
-//     bool nic_compatible() const { return value & (0x1 << 1); }
-//     void set_gpu_compatible(bool v) { value |= (static_cast<int>(v) << 2); }
-//     bool gpu_compatible() const { return value & (0x1 << 2); }
-//     void Merge(AllocatorAttributes other){
-//         value |= other.value;
-//         if (scope_id != other.scope_id){
-//             CHECK(scope_id == 0 || other.scope_id == 0)
-//                 <<"At least one scope_id should be zero to merge "
-//                   "AllocatorAttributes but found this.scope_id="
-//                 << scope_id << " and other.scope_id=" << other.scope_id;
-//             scope_id = scope_id == 0 ? other.scope_id : scope_id;
-//         }
-//     }
+struct AllocatorAttributes {
+    void set_on_host(bool v) { value |= (static_cast<int>(v));}
+    bool on_host() const { return value & 0x1; }
+    void set_nic_compatible(bool v) { value |= (static_cast<int>(v) << 1); }
+    bool nic_compatible() const { return value & (0x1 << 1); }
+    void set_gpu_compatible(bool v) { value |= (static_cast<int>(v) << 2); }
+    bool gpu_compatible() const { return value & (0x1 << 2); }
+    void Merge(AllocatorAttributes other){
+        value |= other.value;
+        if (scope_id != other.scope_id){
+            CHECK(scope_id == 0 || other.scope_id == 0)
+                <<"At least one scope_id should be zero to merge "
+                  "AllocatorAttributes but found this.scope_id="
+                << scope_id << " and other.scope_id=" << other.scope_id;
+            scope_id = scope_id == 0 ? other.scope_id : scope_id;
+        }
+    }
 
-//     bool IsEqualOrLessRestrictiveThan(const AllocatorAttributes& other) const{
-//         return (value | other.value) == other.value;
-//     }
+    bool IsEqualOrLessRestrictiveThan(const AllocatorAttributes& other) const{
+        return (value | other.value) == other.value;
+    }
 
-//     uint32 value = 0;
-//     int32 scope_id = 0;
-//     std::string DebugString() const;
+    uint32 value = 0;
+    int32 scope_id = 0;
+    std::string DebugString() const;
 
-// };
+};
 
-// Allocator* cpu_allocator_base();
+Allocator* cpu_allocator_base();
 
-// Allocator* cpu_allocator(int numa_node = 0);
+Allocator* cpu_allocator(int numa_node = 0);
 
-// // Enables AllocatorStats in the default CPU allocator implementation.  By
-// // default, it's disabled.
-// void EnableCPUAllocatorStats();
-// // Disables AllocatorStats in the default CPU allocator implementation.  By
-// // default, it's disabled.
-// void DisableCPUAllocatorStats();
-// bool CPUAllocatorStatsEnabled();
+// Enables AllocatorStats in the default CPU allocator implementation.  By
+// default, it's disabled.
+void EnableCPUAllocatorStats();
+// Disables AllocatorStats in the default CPU allocator implementation.  By
+// default, it's disabled.
+void DisableCPUAllocatorStats();
+bool CPUAllocatorStatsEnabled();
 
-// // Enables full statistics collection in the default CPU allocator
-// // implementation.  By default, it's disabled.
-// void EnableCPUAllocatorFullStats();
-// bool CPUAllocatorFullStatsEnabled();
+// Enables full statistics collection in the default CPU allocator
+// implementation.  By default, it's disabled.
+void EnableCPUAllocatorFullStats();
+bool CPUAllocatorFullStatsEnabled();
 
-// // An object that does the underlying suballoc/free of memory for a higher-level
-// // allocator.  The expectation is that the higher-level allocator is doing some
-// // kind of cache or pool management so that it will call SubAllocator::Alloc and
-// // Free relatively infrequently, compared to the number of times its own
-// // AllocateRaw and Free methods are called.
+// An object that does the underlying suballoc/free of memory for a higher-level
+// allocator.  The expectation is that the higher-level allocator is doing some
+// kind of cache or pool management so that it will call SubAllocator::Alloc and
+// Free relatively infrequently, compared to the number of times its own
+// AllocateRaw and Free methods are called.
 // class SubAllocator {
 //     public:
 //         typedef std::function<void(void*, int index, size_t)> Visitor;

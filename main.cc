@@ -19,8 +19,12 @@ int main()
     
 
     tfcore::Allocator *a;
-    // std::cout << PREDICT_FALSE(10)<<std::endl;
-    
+
+    tfcore::AllocatorAttributes *alloc_attr;
+    std::cout<< alloc_attr->DebugString() <<std::endl;
+
+  
+
     // tfcore::helloWorld();
     // tfcore::TestClass* t;
     // t->HelloConst();
