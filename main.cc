@@ -21,7 +21,9 @@ int main()
     tfcore::Allocator *a;
 
     tfcore::AllocatorAttributes *alloc_attr;
-    std::cout<< alloc_attr->DebugString() <<std::endl;
+    std::string s = alloc_attr->DebugString();
+    std::string t_s = std::to_string(false);
+    std::cout<< s << t_s <<std::endl;
 
   
 

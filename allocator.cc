@@ -35,7 +35,8 @@ namespace tfcore{
     bool CPUAllocatorFullStatsEnabled() { return cpu_allocator_collect_full_stats; }
 
     std::string AllocatorAttributes::DebugString() const {
-        std::string s = "AllocatorAttributes(on_host=" + std::to_string(on_host());
+        std::string host = std::to_string(on_host());
+        std::string s = "AllocatorAttributes(on_host=" + host;
         return s;
 }
 }
