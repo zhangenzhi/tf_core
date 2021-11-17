@@ -23,7 +23,7 @@ void print_even(int x){
 }
 void print_thread_id(int id){
     try{
-        std::lock_guard<mutex> lck (mtx);
+        // std::lock_guard<mutex> lck (mtx);
         print_even(id);
     }
     catch(logic_error&){
