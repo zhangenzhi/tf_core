@@ -13,6 +13,6 @@ add_executable(TFCore main.cc)
 set(CMAKE_CXX_FLAGS  ${GCC_COVERAGE_LINK_FLAGS})
 # add_compile_options(-lpthread)
 
-target_link_libraries(TFCore thread)
+target_link_libraries(TFCore pthread)
 # aux_source_directory(. DIR_LIB_SRCS)
 # add_library(test ${DIR_LIB_SRCS})
