@@ -11,10 +11,10 @@ using namespace std;
 mutex mtx;
 
 void print_block(int n, char c ){
-    mtx.lock();
+    // mtx.lock();
     for (int i=0;i<n;i++){cout<<c;}
     cout<<'\n';
-    mtx.unlock();
+    // mtx.unlock();
 }
 
 int main()
