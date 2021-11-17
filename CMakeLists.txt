@@ -9,5 +9,5 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 add_executable(TFCore main.cc)
 target_link_libraries(TFCore test)
 
-{% comment %} aux_source_directory(. DIR_LIB_SRCS) {% endcomment %}
-{% comment %} add_library(test ${DIR_LIB_SRCS}) {% endcomment %}
+# aux_source_directory(. DIR_LIB_SRCS)
+# add_library(test ${DIR_LIB_SRCS})
