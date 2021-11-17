@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 add_executable(TFCore main.cc)
-target_link_libraries(TFCore test)
+# target_link_libraries(TFCore test)
 
 # aux_source_directory(. DIR_LIB_SRCS)
 # add_library(test ${DIR_LIB_SRCS})
