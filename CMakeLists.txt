@@ -11,6 +11,7 @@ set(GCC_COVERAGE_LINK_FLAGS "-lpthread")
 add_executable(TFCore main.cc)
 
 set(CMAKE_CXX_FLAGS  ${GCC_COVERAGE_LINK_FLAGS})
+add_compile_options(-lpthread)
 # SET(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} ${GCC_COVERAGE_LINK_FLAGS}")
 
 # target_link_libraries(TFCore test)
