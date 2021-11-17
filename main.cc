@@ -1,9 +1,9 @@
 #include <iostream>
 #include <stdlib.h>
 #include <functional>
-#include "allocator.h"
-#include "test.h"
-#include "types.h"
+// #include "allocator.h"
+// #include "test.h"
+// #include "types.h"
 
 #include <mutex>
 #include <thread>
