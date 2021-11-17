@@ -5,7 +5,9 @@ project(TFCore VERSION 0.1)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
-set(GCC_CONVERAGE_LINK_FLAGS "-lpthread")
+set(GCC_COVERAGE_LINK_FLAGS "-lpthread")
+
+add_definitions(${GCC_COVERAGE_COMPILE_FLAGS})
 add_executable(TFCore main.cc)
 
 # target_link_libraries(TFCore test)
