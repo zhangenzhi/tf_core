@@ -2,6 +2,7 @@
 
 #include <atomic>
 
+#include "allocator_registry.h"
 #include "stringprintf.h"
 
 namespace tfcore{
@@ -38,5 +39,18 @@ namespace tfcore{
         std::string host = std::to_string(on_host());
         std::string s = "AllocatorAttributes(on_host=" + host + ")";
         return s;
-}
+    }
+
+    Allocator* cpu_allocator_base() {
+    static Allocator* cpu_alloc =
+        AllocatorFactoryRegistry::singleton()->GetAllocator();
+    // TODO(tucker): This really seems wrong.  It's only going to be effective on
+    // the first call in a process (but the desired effect is associated with a
+    // session), and we probably ought to be tracking the highest level Allocator,
+    // not the lowest.  Revisit the advertised semantics of the triggering option.
+    if (cpu_allocator_collect_full_stats && !cpu_alloc->TracksAllocationSizes()) {
+        // cpu_alloc = new TrackingAllocator(cpu_alloc, true);
+    }
+    return cpu_alloc;
+    }
 }

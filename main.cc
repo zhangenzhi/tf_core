@@ -5,37 +5,25 @@
 #include "test.h"
 #include "types.h"
 
-#define PREDICT_FALSE(x) (x)
+#include <mutex>
+#include <thread>
+using namespace std;
+mutex mtx;
+
+void print_block(int n,char c ){
+    mtx.lock();
+    for (int i=0;i<n;i++){cout<<c;}
+    cout<<'\n';
+    mtx.unlock();
+}
 
 int main()
 {
-    std::cout << "Hello Geek\n";
-    std::function<tfcore::uint64()>* p;
+    thread th1(print_block,50,'*');
+    thread th2(print_block,50,'-');
 
-    // tfcore::AllocationAttributes(false,false,p);
-    // tfcore::AllocatorStats* as;
-    // std::string s = as->DebugString();
-    // std::cout << s <<std::endl;
-    
+    th1.join();
+    th2.join();
 
-    tfcore::Allocator *a;
-
-    tfcore::AllocatorAttributes *alloc_attr;
-    std::string s = alloc_attr->DebugString();
-    std::string t_s = std::to_string(false);
-    std::cout<< s << t_s <<std::endl;
-
-  
-    tfcore::SubAllocator *sa;
-    
-    // tfcore::helloWorld();
-    // tfcore::TestClass* t;
-    // t->HelloConst();
-
-    // bool v = false;
-    // std::cout<<(v & 0x1)<<std::endl;
-    // std::cout<<(0x1 << 1)<<std::endl;
-    // std::cout<<(0x1 << 2)<<std::endl;
-    // std::cout<<(v & (0x1 << 2))<<std::endl;
     return 0;
 }
