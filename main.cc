@@ -36,8 +36,13 @@ int main()
     tfcore::BFCAllocator *bfc;
     
     void* ptr = nullptr;
-    ptr = malloc(10+1);
+    int size = 10+1;
+    
+    ptr = malloc(size);
     std::cout<<sizeof(&ptr)<<std::endl;
+    free(ptr);
+    std::cout<<sizeof(&ptr)<<std::endl;
+
     // std::thread th1(print_block,50,'*');
     // std::thread th2(print_block,50,'-');
 
