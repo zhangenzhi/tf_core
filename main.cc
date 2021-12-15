@@ -37,7 +37,7 @@ int main()
     
     void* ptr = nullptr;
     ptr = malloc(10+1);
-    std::cout<<ptr<<std::endl;
+    std::cout<<sizeof(*ptr)<<std::endl;
     // std::thread th1(print_block,50,'*');
     // std::thread th2(print_block,50,'-');
 
