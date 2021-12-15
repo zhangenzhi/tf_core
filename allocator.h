@@ -210,7 +210,7 @@ class SubAllocator {
                             size_t* bytes_received) = 0;
         virtual void Free(void* ptr, size_t num_bytes) = 0;
 
-        virtual bool SupportCoalescing() const = 0;
+        virtual bool SupportsCoalescing() const = 0;
 
     protected:
         void VisitAlloc(void* ptr, int index, size_t num_bytes) {};

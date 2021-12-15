@@ -4,6 +4,7 @@
 // #include "allocator.h"
 // #include "test.h"
 // #include "types.h"
+#include "bfc_allocator.h"
 
 #include <mutex>
 #include <thread>
@@ -23,7 +24,7 @@ void print_even(int x){
 }
 void print_thread_id(int id){
     try{
-        // std::lock_guard<mutex> lck (mtx);
+        std::lock_guard<mutex> lck (mtx);
         print_even(id);
     }
     catch(logic_error&){
@@ -32,16 +33,21 @@ void print_thread_id(int id){
 }
 int main()
 {
+    tfcore::BFCAllocator *bfc;
+    
+    void* ptr = nullptr;
+    ptr = malloc(10+1);
+    std::cout<<ptr<<std::endl;
     // std::thread th1(print_block,50,'*');
     // std::thread th2(print_block,50,'-');
 
     // th1.join();
     // th2.join();
 
-    thread threads[10];
-    for(int i=0; i<10;i++)
-        threads[i] = thread(print_thread_id, i+1);
-    for (auto& th : threads) th.join();
+    // thread threads[10];
+    // for(int i=0; i<10;i++)
+    //     threads[i] = thread(print_thread_id, i+1);
+    // for (auto& th : threads) th.join();
 
     return 0;
 }

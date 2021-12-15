@@ -4,7 +4,8 @@
 #include <string>
 #include <vector>
 
-// #include "mutex.h"
+#include <mutex>
+
 #include "macros.h"
 #include "allocator.h"
 
@@ -45,7 +46,7 @@ class AllocatorFactoryRegistry {
         ProcessStateInterface* process_state_ = nullptr;
     
     private:
-        bool mu_=false;
+        std::mutex mu_;
         bool first_alloc_made_ = false;
         struct FactoryEntry {
             const char* source_file;
